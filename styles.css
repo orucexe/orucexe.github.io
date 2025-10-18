@@ -1,0 +1,461 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Rajdhani:wght@300;400;500&display=swap');
+
+@font-face {
+  font-family: 'BBH Sans Hegarty';
+  src: url('fonts/BBH-Sans-Hegarty.woff2') format('woff2'),
+       url('fonts/BBH-Sans-Hegarty.woff') format('woff');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #000;
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.main-title {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 200;
+    pointer-events: none;
+}
+
+.orucexe-text {
+  font-family: 'Orbitron', 'BBH Sans Hegarty', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  display: inline-flex;
+  gap: 0.08em;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0;
+  font-size: 8rem;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.letter {
+    display: inline-block;
+    opacity: 0;
+    transform: scale(0.3) translateX(-80px) rotateY(45deg);
+    color: #ffffff;
+    text-shadow: 
+        0 0 15px rgba(255, 255, 255, 0.4),
+        0 0 30px rgba(100, 200, 255, 0.3),
+        0 0 45px rgba(100, 200, 255, 0.2);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
+}
+
+/* Subtitle Styling */
+.subtitle {
+    font-family: 'Rajdhani', 'JetBrains Mono', monospace;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #ffffff;
+    margin: 20px 0 0 0;
+    padding: 0;
+    display: inline-flex;
+    gap: 0;
+    letter-spacing: 0.05em;
+    align-items: center;
+}
+
+.prefix {
+    color: #ffffff;
+    opacity: 0;
+    margin-right: 8px;
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.3),
+        0 0 20px rgba(100, 200, 255, 0.2);
+}
+
+.typing-text {
+    font-family: 'Rajdhani', 'JetBrains Mono', monospace;
+    color: #ffffff;
+    min-width: 20px;
+    display: inline-block;
+    text-shadow: 
+        0 0 15px rgba(255, 255, 255, 0.4),
+        0 0 30px rgba(100, 200, 255, 0.3);
+}
+
+.cursor {
+    display: inline-block;
+    color: #ffffff;
+    font-weight: 100;
+    margin-left: 2px;
+    opacity: 0;
+    visibility: hidden;
+    text-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.6),
+        0 0 20px rgba(100, 200, 255, 0.4);
+}
+
+.cursor.active {
+    visibility: visible;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+/* Social Media Links */
+.social-links {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    opacity: 0;
+    animation: fadeInSocial 1s ease-out 4s forwards;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.social-links.move-up {
+    top: 30px;
+}
+
+@keyframes fadeInSocial {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(20, 20, 30, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.3),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.social-icon svg {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: rgba(100, 200, 255, 0.2);
+    border-color: rgba(100, 200, 255, 0.5);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 
+        0 8px 25px rgba(100, 200, 255, 0.3),
+        0 0 30px rgba(100, 200, 255, 0.2),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.social-icon:hover svg {
+    filter: drop-shadow(0 0 8px rgba(100, 200, 255, 0.6));
+}
+
+.social-icon:active {
+    transform: translateY(-3px) scale(1.05);
+}
+
+.mood-toggle {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(20, 20, 30, 0.85);
+    border: 1px solid rgba(100, 200, 255, 0.3);
+    color: #ffffff;
+    padding: 12px 28px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: lowercase;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(20px);
+    box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(100, 200, 255, 0.1),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    animation: fadeInMood 1s ease-out 4.5s forwards;
+}
+
+@keyframes fadeInMood {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.mood-toggle .chevron-icon {
+    transition: transform 0.3s ease;
+}
+
+.mood-toggle.active .chevron-icon {
+    transform: rotate(180deg);
+}
+
+.mood-toggle:hover {
+    background: rgba(30, 30, 45, 0.9);
+    border-color: rgba(100, 200, 255, 0.5);
+    box-shadow: 
+        0 8px 30px rgba(100, 200, 255, 0.3),
+        0 0 40px rgba(100, 200, 255, 0.2),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    transform: translateX(-50%) translateY(-3px);
+}
+
+.mood-toggle:active {
+    transform: translateX(-50%) translateY(-1px);
+}
+
+.music-player {
+    position: fixed;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%) translateY(150px);
+    z-index: 199;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(20, 20, 30, 0.85);
+    padding: 20px 30px;
+    border-radius: 50px;
+    border: 1px solid rgba(100, 200, 255, 0.3);
+    backdrop-filter: blur(20px);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba(100, 200, 255, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.music-player.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.player-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, rgba(100, 200, 255, 0.2), rgba(50, 150, 255, 0.1));
+    border: 1px solid rgba(100, 200, 255, 0.4);
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 4px 15px rgba(100, 200, 255, 0.2),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.player-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, rgba(100, 200, 255, 0.35), rgba(50, 150, 255, 0.25));
+    border-color: rgba(100, 200, 255, 0.6);
+    box-shadow: 
+        0 6px 25px rgba(100, 200, 255, 0.4),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.player-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.player-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.select-btn {
+    background: linear-gradient(135deg, rgba(100, 200, 255, 0.3), rgba(50, 150, 255, 0.2));
+}
+
+.play-btn.playing {
+    background: linear-gradient(135deg, rgba(50, 255, 150, 0.3), rgba(50, 200, 150, 0.2));
+    border-color: rgba(50, 255, 150, 0.5);
+}
+
+.song-name {
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    padding: 0 10px;
+}
+
+/* Professional Glow Animation */
+@keyframes professionalGlow {
+    0%, 100% {
+        text-shadow: 
+            0 0 15px rgba(255, 255, 255, 0.4),
+            0 0 30px rgba(100, 200, 255, 0.3),
+            0 0 45px rgba(100, 200, 255, 0.2);
+        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
+    }
+    50% {
+        text-shadow: 
+            0 0 20px rgba(255, 255, 255, 0.5),
+            0 0 40px rgba(100, 200, 255, 0.4),
+            0 0 60px rgba(100, 200, 255, 0.3);
+        filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.3));
+    }
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .orucexe-text {
+        font-size: clamp(3rem, 10vw, 6rem);
+        letter-spacing: 0.05em;
+    }
+    
+    .subtitle {
+        font-size: clamp(1rem, 4vw, 1.5rem);
+    }
+    
+    .social-links {
+        top: 20px;
+        gap: 15px;
+    }
+    
+    .social-links.move-up {
+        top: 20px;
+    }
+    
+    .social-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .social-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .mood-toggle {
+        bottom: 30px;
+        padding: 10px 24px;
+        font-size: 14px;
+    }
+    
+    .music-player {
+        bottom: 80px;
+        padding: 15px 20px;
+        gap: 10px;
+        border-radius: 40px;
+    }
+    
+    .player-btn {
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+    
+    .song-name {
+        max-width: 120px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .orucexe-text {
+        font-size: clamp(2rem, 8vw, 4rem);
+    }
+    
+    .subtitle {
+        font-size: clamp(0.8rem, 3vw, 1.2rem);
+    }
+    
+    .social-links {
+        top: 15px;
+        gap: 12px;
+    }
+    
+    .social-links.move-up {
+        top: 15px;
+    }
+    
+    .social-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .social-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .mood-toggle {
+        bottom: 25px;
+        padding: 8px 20px;
+        font-size: 13px;
+    }
+    
+    .music-player {
+        flex-direction: column;
+        padding: 12px 18px;
+        gap: 8px;
+    }
+    
+    .player-btn {
+        padding: 8px 14px;
+        font-size: 11px;
+    }
+    
+    .song-name {
+        max-width: 150px;
+    }
+}
